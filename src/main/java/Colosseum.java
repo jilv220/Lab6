@@ -53,7 +53,7 @@ public class Colosseum {
      * Requirements we should check the user for: <br>
      * - The type of Pokemon is 1 of the 3 choices <br>
      * - Hit points are between 1 and MAX_HIT_POINTS <br>
-     * - No more than 50 points are split between attack level and defense leve <br>
+     * - No more than 50 points are split between attack level and defense level<br>
      * - Attack level and defense level must have at least 1 point each <br>
      * Example of how this will look to the user:
      * <p>
@@ -102,8 +102,37 @@ public class Colosseum {
      * (Look, we can return objects too!)
      */
     public static Pokemon buildPokemon() {
-        Pokemon returnPokemon = null;
-        return returnPokemon;
+        Pokemon tempPokemon = new Pokemon();
+        System.out.println("Select the type for your pokemon: ");
+        System.out.println("1. Electric ");
+        System.out.println("2. Fire ");
+        System.out.println("3. Water ");
+
+        int typeTemp = Integer.parseInt(myScan.nextLine());
+
+        if (typeTemp == 1) {
+            tempPokemon.pokeType = Pokemon.PokemonType.ELECTRIC;
+        } else if (typeTemp == 2) {
+            tempPokemon.pokeType = Pokemon.PokemonType.FIRE;
+        } else if (typeTemp == 3) {
+            tempPokemon.pokeType = Pokemon.PokemonType.WATER;
+        } else {
+            System.out.println("Please choose from 1 to 3");
+        }
+
+        System.out.println("Enter the name of your pokemon: ");
+        tempPokemon.setName(myScan.nextLine());
+
+        System.out.println("Enter the hitPoints of your pokemon: ");
+        tempPokemon.setHitPoints(Integer.parseInt(myScan.nextLine()));
+
+        System.out.println("Enter the attack level of your pokemon: ");
+        tempPokemon.setAttackLevel(Integer.parseInt(myScan.nextLine()));
+
+        System.out.println("Enter the defense level of your pokemon: ");
+        tempPokemon.setDefenseLevel(Integer.parseInt(myScan.nextLine()));
+
+        return tempPokemon;
     }
 
     /**

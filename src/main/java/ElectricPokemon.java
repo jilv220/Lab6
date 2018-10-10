@@ -59,6 +59,17 @@ public class ElectricPokemon extends Pokemon {
      * Implement this.
      */
     public boolean attack(final Pokemon opponent) {
+        double firstProb = Math.random();
+        if ((opponent.pokeType != PokemonType.ELECTRIC)
+            && (firstProb > specProb)) {
+            System.out.println(this.getName() + "executes a specialty attack..." + specialtyAttack);
+            opponent.setHitPoints(0);
+            if (opponent.getHitPoints() == 0) {
+                return true;
+            }
+        } else {
+            return false;
+        }
         return false;
     }
 
